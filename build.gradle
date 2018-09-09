@@ -1,0 +1,50 @@
+group 'com.snyk'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.2.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+
+    // web api
+    compile 'org.springframework.boot:spring-boot-starter-web'
+
+    // lombok and logging
+    compile 'org.projectlombok:lombok:1.16.8'
+    compile 'org.slf4j:slf4j-api:1.7.14'
+    compile 'ch.qos.logback:logback-classic:1.1.7'
+    compile 'ch.qos.logback:logback-core:1.1.7'
+
+    // utils
+    compile 'org.apache.commons:commons-collections4:4.2'
+    compile 'org.apache.commons:commons-lang3:3.8'
+
+    // version parsing
+    compile 'com.github.zafarkhaja:java-semver:0.9.0'
+
+    // json parsing
+    compile 'com.fasterxml.jackson.core:jackson-core:2.9.6'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.9.6'
+
+    // web utils
+    compile 'com.squareup.okhttp3:okhttp:3.11.0'
+}
